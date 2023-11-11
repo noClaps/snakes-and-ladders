@@ -1,0 +1,44 @@
+---
+import { Dice1 } from "lucide-astro";
+---
+
+<div class="dice">
+    <button
+        hx-post="/partials/roll-dice"
+        hx-target="#dice-value"
+        hx-swap="outerHTML">Roll Dice</button
+    >
+    <div id="dice-value"><Dice1 /></div>
+</div>
+
+<style>
+    .dice {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    button {
+        font-size: 1.125rem;
+        padding: 0.5rem;
+        cursor: pointer;
+        border: none;
+        background-color: var(--accent);
+        color: var(--accent-text);
+        border-radius: 0.5rem;
+        transition: var(--transition);
+
+        &:hover {
+            box-shadow: 0 0 1rem 0.25rem var(--accent);
+        }
+    }
+</style>
+
+<style is:global>
+    #dice-value svg {
+        height: 2rem;
+        width: 2rem;
+    }
+</style>
