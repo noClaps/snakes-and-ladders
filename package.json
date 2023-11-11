@@ -13,6 +13,7 @@
     "@astrojs/check": "^0.3.1",
     "@astrojs/vercel": "^5.2.0",
     "astro": "^3.5.2",
+    "lucide-astro": "^0.292.0",
     "typescript": "^5.2.2"
   }
 }

@@ -1,20 +1,47 @@
+/* Vars */
+:root {
+    --background: canvas;
+    --color: canvastext;
+    --accent: accentcolor;
+    --transition: 0.25s;
+}
+
 /* Colors */
 :root {
     color-scheme: dark light;
-    background-color: canvas;
-    --color: canvastext;
     font-family: system-ui;
 
     @media (prefers-color-scheme: dark) {
         color-scheme: dark;
+
+        &:has(#theme-toggle:checked) {
+            color-scheme: light;
+        }
+
+        &:has(#theme-toggle:not(:checked)) {
+            color-scheme: dark;
+        }
     }
 
     @media (prefers-color-scheme: light) {
         color-scheme: light;
+
+        &:has(#theme-toggle:checked) {
+            color-scheme: dark;
+        }
+
+        &:has(#theme-toggle:not(:checked)) {
+            color-scheme: light;
+        }
     }
 }
 
 a {
     color: var(--text);
     text-underline-offset: 0.25rem;
+    transition: var(--transition);
+
+    &:hover {
+        color: var(--accent);
+    }
 }
