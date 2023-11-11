@@ -13,11 +13,15 @@ const table = Array.from({ length: 10 }, (_) =>
                         {i % 2
                             ? row
                                   .map((_, j) => (
-                                      <td id={`position-${10 * i + j}`}>0</td>
+                                      <td id={`position-${10 * i + j}`}>
+                                          {10 * i + j}
+                                      </td>
                                   ))
                                   .reverse()
                             : row.map((_, j) => (
-                                  <td id={`position-${10 * i + j}`}>0</td>
+                                  <td id={`position-${10 * i + j}`}>
+                                      {10 * i + j}
+                                  </td>
                               ))}
                     </tr>
                 ))
@@ -29,7 +33,8 @@ const table = Array.from({ length: 10 }, (_) =>
 <style>
     table {
         margin: auto;
-        width: min(100%, 40rem);
+        border: 0.125rem solid var(--text);
+        filter: opacity(50%);
     }
 
     tbody {
@@ -42,9 +47,18 @@ const table = Array.from({ length: 10 }, (_) =>
     tr {
         display: flex;
         justify-content: space-evenly;
+
+        &:not(:last-child) {
+            border-bottom: 0.125rem solid var(--text);
+        }
     }
 
     td {
-        text-align: center;
+        aspect-ratio: 1;
+        width: 4rem;
+
+        &:not(:last-child) {
+            border-right: 0.125rem solid var(--text);
+        }
     }
 </style>
