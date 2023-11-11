@@ -1,0 +1,50 @@
+---
+const table = Array.from({ length: 10 }, (_) =>
+    Array.from({ length: 10 }, (_) => 0),
+);
+---
+
+<table>
+    <tbody>
+        {
+            table
+                .map((row, i) => (
+                    <tr>
+                        {i % 2
+                            ? row
+                                  .map((_, j) => (
+                                      <td id={`position-${10 * i + j}`}>0</td>
+                                  ))
+                                  .reverse()
+                            : row.map((_, j) => (
+                                  <td id={`position-${10 * i + j}`}>0</td>
+                              ))}
+                    </tr>
+                ))
+                .reverse()
+        }
+    </tbody>
+</table>
+
+<style>
+    table {
+        margin: auto;
+        width: min(100%, 40rem);
+    }
+
+    tbody {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        aspect-ratio: 1 / 1;
+    }
+
+    tr {
+        display: flex;
+        justify-content: space-evenly;
+    }
+
+    td {
+        text-align: center;
+    }
+</style>

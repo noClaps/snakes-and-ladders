@@ -22,9 +22,7 @@ const {
     </Head>
     <body>
         <Header {title} />
-        <main>
-            <slot />
-        </main>
+        <slot />
         <style>
             body {
                 background-color: var(--background);
@@ -34,11 +32,6 @@ const {
                 grid-template-rows: auto 1fr auto;
                 margin: 0;
                 transition: var(--transition);
-            }
-
-            main {
-                width: min(64rem, 88%);
-                margin: auto;
             }
         </style>
         <Footer />
