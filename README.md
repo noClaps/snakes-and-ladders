@@ -4,8 +4,8 @@ A simple game of snakes and ladders implemented using Astro and SSR.
 
 Features of this game:
 
-- [ ] Random board on load
-- [ ] Multiplayer (2+ players) on the same device
+- Random board on load
+- Multiplayer (2+ players) on the same device
 
 ## Build instructions
 

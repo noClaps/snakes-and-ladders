@@ -15,6 +15,7 @@
     "astro": "^3.5.2",
     "htmx.org": "^1.9.8",
     "lucide-astro": "^0.292.0",
+    "nanostores": "^0.9.5",
     "typescript": "^5.2.2"
   }
 }

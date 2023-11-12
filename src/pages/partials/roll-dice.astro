@@ -1,25 +1,49 @@
 ---
 import { Dice1, Dice2, Dice3, Dice4, Dice5, Dice6 } from "lucide-astro";
+import { position } from "../../scripts/position";
 
 export const partial = true;
 
 const rollDice = Math.round(Math.random() * 5) + 1;
+const oldPosition = position.get();
+const newPosition = oldPosition + rollDice;
+
+if (newPosition <= 99) {
+    position.set(newPosition);
+}
+
+console.log(newPosition);
 ---
 
-<div id="dice-value" data-roll={rollDice}>
-    {
-        rollDice === 1 ? (
-            <Dice1 />
-        ) : rollDice === 2 ? (
-            <Dice2 />
-        ) : rollDice === 3 ? (
-            <Dice3 />
-        ) : rollDice === 4 ? (
-            <Dice4 />
-        ) : rollDice === 5 ? (
-            <Dice5 />
-        ) : (
-            <Dice6 />
-        )
-    }
+<div
+    class="dice"
+    hx-get="/partials/roll-dice"
+    hx-swap="outerHTML"
+    hx-select=".dice"
+>
+    <button
+        id="dice"
+        hx-get="/partials/set-player-position"
+        hx-target={`#position-${position.get()}`}
+        hx-swap="afterbegin"
+        hx-select="#player"
+        hx-trigger="load">Roll Dice</button
+    >
+    <div id="dice-value">
+        {
+            rollDice === 1 ? (
+                <Dice1 />
+            ) : rollDice === 2 ? (
+                <Dice2 />
+            ) : rollDice === 3 ? (
+                <Dice3 />
+            ) : rollDice === 4 ? (
+                <Dice4 />
+            ) : rollDice === 5 ? (
+                <Dice5 />
+            ) : (
+                <Dice6 />
+            )
+        }
+    </div>
 </div>

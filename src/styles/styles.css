@@ -4,6 +4,7 @@
     --text: canvastext;
     --accent: oklch(60% 0.25 256);
     --accent-text: oklch(100% 0 0);
+    --danger: oklch(60% 0.25 16);
     --transition: 0.25s;
 }
 

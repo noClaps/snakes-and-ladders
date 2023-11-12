@@ -2,12 +2,16 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Board from "../components/game/Board.astro";
 import Dice from "../components/game/Dice.astro";
+import Reset from "../components/game/Reset.astro";
 ---
 
 <BaseLayout>
     <main>
         <Board />
-        <Dice />
+        <div class="controls">
+            <Dice />
+            <Reset />
+        </div>
     </main>
 </BaseLayout>
 
@@ -16,5 +20,12 @@ import Dice from "../components/game/Dice.astro";
         width: min(64rem, 88%);
         margin: auto;
         display: flex;
+        align-items: center;
+    }
+
+    .controls {
+        display: flex;
+        flex-direction: column;
+        gap: 4rem;
     }
 </style>

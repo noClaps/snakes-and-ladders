@@ -1,0 +1,28 @@
+<button id="reset" hx-post="/partials/reset">Reset game</button>
+
+<style>
+    button {
+        font-size: 1.125rem;
+        padding: 0.5rem;
+        cursor: pointer;
+        border: none;
+        background-color: var(--danger);
+        color: var(--accent-text);
+        border-radius: 0.5rem;
+        transition: var(--transition);
+
+        &:hover {
+            box-shadow: 0 0 1rem 0.25rem var(--danger);
+        }
+    }
+</style>
+
+<script>
+    import { setPosition } from "../../scripts/position";
+
+    const reset = document.querySelector<HTMLButtonElement>(`#reset`);
+    reset?.addEventListener("click", () => {
+        const player = document.querySelector<HTMLElement>("#player")!;
+        setPosition(player, 0);
+    });
+</script>
