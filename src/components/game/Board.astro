@@ -1,6 +1,5 @@
 ---
 import BoardSquare from "./BoardSquare.astro";
-import Player from "./Player.astro";
 const table = Array.from({ length: 10 }, (_) =>
     Array.from({ length: 10 }, (_) => 0),
 );
@@ -10,11 +9,6 @@ interface Props {
 }
 
 const { playerPositions } = Astro.props;
-
-const player1Position = playerPositions[0];
-const player2Position = playerPositions[1];
-const player3Position = playerPositions[2];
-const player4Position = playerPositions[3];
 ---
 
 <table
@@ -31,21 +25,21 @@ const player4Position = playerPositions[3];
                         {i % 2
                             ? row
                                   .map((_, j) => (
-                                      <td id={`position-${10 * i + j}`}>
-                                          {10 * i + j}
+                                      <td id={`position-${10 * i + j + 1}`}>
+                                          {10 * i + j + 1}
                                           <BoardSquare
                                               {playerPositions}
-                                              coords={10 * i + j}
+                                              coords={10 * i + j + 1}
                                           />
                                       </td>
                                   ))
                                   .reverse()
                             : row.map((_, j) => (
-                                  <td id={`position-${10 * i + j}`}>
-                                      {10 * i + j}
+                                  <td id={`position-${10 * i + j + 1}`}>
+                                      {10 * i + j + 1}
                                       <BoardSquare
                                           {playerPositions}
-                                          coords={10 * i + j}
+                                          coords={10 * i + j + 1}
                                       />
                                   </td>
                               ))}

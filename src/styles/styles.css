@@ -47,7 +47,3 @@ a {
         color: var(--accent);
     }
 }
-
-#board.htmx-swapping {
-    transition: all 0.25s;
-}
