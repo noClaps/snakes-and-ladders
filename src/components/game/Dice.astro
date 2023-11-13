@@ -1,5 +1,5 @@
 ---
-import { Dice1 } from "lucide-astro";
+import DiceValue from "./DiceValue.astro";
 ---
 
 <div class="dice">
@@ -10,7 +10,7 @@ import { Dice1 } from "lucide-astro";
         hx-swap="outerHTML"
         hx-select-oob="#board">Roll Dice</button
     >
-    <div id="dice-value"><Dice1 /></div>
+    <DiceValue value={3} />
 </div>
 
 <style>
@@ -35,12 +35,5 @@ import { Dice1 } from "lucide-astro";
         &:hover {
             box-shadow: 0 0 1rem 0.25rem var(--accent);
         }
-    }
-</style>
-
-<style is:global>
-    #dice-value svg {
-        height: 2rem;
-        width: 2rem;
     }
 </style>
