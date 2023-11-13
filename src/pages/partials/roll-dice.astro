@@ -1,16 +1,50 @@
 ---
-import { position } from "../../scripts/position";
+import {
+    p1position,
+    p2position,
+    p3position,
+    p4position,
+    turn,
+} from "../../scripts/position";
 import DiceValue from "../../components/game/DiceValue.astro";
 
 export const partial = true;
 
-const rollDice = Math.round(Math.random() * 5) + 1;
-const oldPosition = position.get();
-const newPosition = oldPosition + rollDice;
+function roll(player: number) {
+    const positions = [p1position, p2position, p3position, p4position];
+
+    const rollDice = Math.round(Math.random() * 5) + 1;
+    const oldPosition = positions[player - 1].get();
+    const newPosition = oldPosition + rollDice;
+
+    return [newPosition, rollDice];
+}
+
+const [newPosition, rollDice] = roll(turn.get());
 
 if (newPosition <= 99) {
-    position.set(newPosition);
+    if (turn.get() === 1) {
+        p1position.set(newPosition);
+    }
+    if (turn.get() === 2) {
+        p2position.set(newPosition);
+    }
+    if (turn.get() === 3) {
+        p3position.set(newPosition);
+    }
+    if (turn.get() === 4) {
+        p4position.set(newPosition);
+    }
 }
+
+if (turn.get() !== 4) {
+    turn.set(turn.get() + 1);
+} else {
+    turn.set(1);
+}
+
+console.log();
 ---
 
 <DiceValue value={rollDice} />
+<p id="turn">Player {turn.get()}'s turn</p>

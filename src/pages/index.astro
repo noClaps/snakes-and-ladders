@@ -6,8 +6,12 @@ import Reset from "../components/game/Reset.astro";
 ---
 
 <BaseLayout>
-    <main>
-        <Board player1Position={0} />
+    <main
+        hx-get="/partials/declare-winner"
+        hx-trigger="click from:#dice"
+        hx-swap="afterend"
+    >
+        <Board playerPositions={[0, 0, 0, 0]} />
         <div class="controls">
             <Dice />
             <Reset />

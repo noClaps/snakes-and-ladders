@@ -1,0 +1,16 @@
+---
+import Win from "../../components/game/Win.astro";
+import {
+    p1position,
+    p2position,
+    p3position,
+    p4position,
+} from "../../scripts/position";
+
+export const partial = true;
+---
+
+{p1position.get() === 99 && <Win player="Player 1" />}
+{p2position.get() === 99 && <Win player="Player 2" />}
+{p3position.get() === 99 && <Win player="Player 3" />}
+{p4position.get() === 99 && <Win player="Player 4" />}

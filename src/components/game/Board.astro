@@ -1,14 +1,20 @@
 ---
+import BoardSquare from "./BoardSquare.astro";
 import Player from "./Player.astro";
 const table = Array.from({ length: 10 }, (_) =>
     Array.from({ length: 10 }, (_) => 0),
 );
 
 interface Props {
-    player1Position: number;
+    playerPositions: number[];
 }
 
-const { player1Position } = Astro.props;
+const { playerPositions } = Astro.props;
+
+const player1Position = playerPositions[0];
+const player2Position = playerPositions[1];
+const player3Position = playerPositions[2];
+const player4Position = playerPositions[3];
 ---
 
 <table
@@ -27,20 +33,20 @@ const { player1Position } = Astro.props;
                                   .map((_, j) => (
                                       <td id={`position-${10 * i + j}`}>
                                           {10 * i + j}
-                                          {10 * i + j === player1Position && (
-                                              <Player
-                                                  position={player1Position}
-                                              />
-                                          )}
+                                          <BoardSquare
+                                              {playerPositions}
+                                              coords={10 * i + j}
+                                          />
                                       </td>
                                   ))
                                   .reverse()
                             : row.map((_, j) => (
                                   <td id={`position-${10 * i + j}`}>
                                       {10 * i + j}
-                                      {10 * i + j === player1Position && (
-                                          <Player position={player1Position} />
-                                      )}
+                                      <BoardSquare
+                                          {playerPositions}
+                                          coords={10 * i + j}
+                                      />
                                   </td>
                               ))}
                     </tr>
@@ -76,7 +82,6 @@ const { player1Position } = Astro.props;
     td {
         aspect-ratio: 1;
         width: 4rem;
-        position: relative;
 
         &:not(:last-child) {
             border-right: 0.125rem solid var(--text);

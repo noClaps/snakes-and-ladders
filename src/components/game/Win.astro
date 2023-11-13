@@ -1,0 +1,22 @@
+---
+import Reset from "./Reset.astro";
+interface Props {
+    player: string;
+}
+
+const { player } = Astro.props;
+---
+
+<dialog open hx-on:click="this.remove()">
+    <p>{player} wins!</p>
+    <form method="dialog">
+        <Reset />
+    </form>
+</dialog>
+
+<style>
+    dialog[open] {
+        border: none;
+        border-radius: 0.5rem;
+    }
+</style>

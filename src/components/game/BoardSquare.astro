@@ -1,0 +1,36 @@
+---
+import Player from "./Player.astro";
+
+interface Props {
+    playerPositions: number[];
+    coords: number;
+}
+
+const { playerPositions, coords } = Astro.props;
+---
+
+<div>
+    {
+        playerPositions.map((pos, index) => {
+            if (pos === coords && index + 1 === 1) {
+                return <Player player={1} />;
+            }
+            if (pos === coords && index + 1 === 2) {
+                return <Player player={2} />;
+            }
+            if (pos === coords && index + 1 === 3) {
+                return <Player player={3} />;
+            }
+            if (pos === coords && index + 1 === 4) {
+                return <Player player={4} />;
+            }
+        })
+    }
+</div>
+
+<style>
+    div {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+</style>

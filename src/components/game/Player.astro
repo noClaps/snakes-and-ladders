@@ -1,22 +1,16 @@
 ---
-import { Ghost } from "lucide-astro";
+import { Cat, Dog, Rabbit, Rat } from "lucide-astro";
 
 interface Props {
-    position: number;
+    player: number;
 }
 
-const { position } = Astro.props;
+const { player } = Astro.props;
 ---
 
-<div data-position={position}>
-    <Ghost />
+<div>
+    {player === 1 && <Rabbit />}
+    {player === 2 && <Rat />}
+    {player === 3 && <Cat />}
+    {player === 4 && <Dog />}
 </div>
-
-<style>
-    div {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        translate: -50% -50%;
-    }
-</style>

@@ -1,7 +1,18 @@
 ---
 import Board from "../../components/game/Board.astro";
-import { position } from "../../scripts/position";
-
+import {
+    p1position,
+    p2position,
+    p3position,
+    p4position,
+} from "../../scripts/position";
 ---
 
-<Board player1Position={position.get()} />
+<Board
+    playerPositions={[
+        p1position.get(),
+        p2position.get(),
+        p3position.get(),
+        p4position.get(),
+    ]}
+/>
