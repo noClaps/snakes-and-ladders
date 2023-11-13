@@ -11,7 +11,12 @@ interface Props {
 const { player1Position } = Astro.props;
 ---
 
-<table id="board">
+<table
+    id="board"
+    hx-trigger="click from:#dice"
+    hx-get="/partials/update-board"
+    hx-swap="outerHTML"
+>
     <tbody>
         {
             table

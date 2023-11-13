@@ -4,11 +4,10 @@ import DiceValue from "./DiceValue.astro";
 
 <div class="dice">
     <button
+        id="dice"
         hx-get="/partials/roll-dice"
-        hx-select="#dice-value"
         hx-target="#dice-value"
-        hx-swap="outerHTML"
-        hx-select-oob="#board">Roll Dice</button
+        hx-swap="outerHTML">Roll Dice</button
     >
     <DiceValue value={3} />
 </div>

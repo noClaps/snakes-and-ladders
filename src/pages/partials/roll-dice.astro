@@ -1,6 +1,5 @@
 ---
 import { position } from "../../scripts/position";
-import Board from "../../components/game/Board.astro";
 import DiceValue from "../../components/game/DiceValue.astro";
 
 export const partial = true;
@@ -15,4 +14,3 @@ if (newPosition <= 99) {
 ---
 
 <DiceValue value={rollDice} />
-<Board player1Position={position.get()} />
