@@ -1,10 +1,10 @@
 ---
-import { turn } from "../../scripts/position";
+import { turn } from "../../scripts/stores";
 import DiceValue from "./DiceValue.astro";
 import Turn from "./Turn.astro";
 ---
 
-<div class="dice">
+<div>
     <Turn player={turn.get()} />
     <button
         id="dice"
@@ -16,7 +16,7 @@ import Turn from "./Turn.astro";
 </div>
 
 <style>
-    .dice {
+    div {
         display: flex;
         flex-direction: column;
         justify-content: center;

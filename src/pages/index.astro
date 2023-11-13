@@ -8,7 +8,7 @@ import Reset from "../components/game/Reset.astro";
 <BaseLayout>
     <main
         hx-get="/partials/declare-winner"
-        hx-trigger="click from:#dice"
+        hx-trigger="click from:#dice delay:0.25s"
         hx-swap="afterend"
     >
         <Board playerPositions={[1, 1, 1, 1]} />

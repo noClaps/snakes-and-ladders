@@ -7,7 +7,12 @@ interface Props {
 const { player } = Astro.props;
 ---
 
-<dialog open hx-on:click="this.remove()">
+<dialog
+    open
+    hx-on:click="this.remove()"
+    hx-get="/partials/reset"
+    hx-swap="none"
+>
     <p>{player} wins!</p>
     <form method="dialog">
         <Reset />
