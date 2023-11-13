@@ -1,4 +1,9 @@
-<button id="reset" hx-post="/partials/reset">Reset game</button>
+<button
+    id="reset"
+    hx-post="/partials/reset"
+    hx-target="#board"
+    hx-swap="outerHTML">Reset game</button
+>
 
 <style>
     button {
@@ -16,13 +21,3 @@
         }
     }
 </style>
-
-<script>
-    import { setPosition } from "../../scripts/position";
-
-    const reset = document.querySelector<HTMLButtonElement>(`#reset`);
-    reset?.addEventListener("click", () => {
-        const player = document.querySelector<HTMLElement>("#player")!;
-        setPosition(player, 0);
-    });
-</script>

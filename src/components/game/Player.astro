@@ -1,8 +1,14 @@
 ---
 import { Ghost } from "lucide-astro";
+
+interface Props {
+    position: number;
+}
+
+const { position } = Astro.props;
 ---
 
-<div id="player" data-position="0" style="display: none;">
+<div id="player" data-position={position}>
     <Ghost />
 </div>
 

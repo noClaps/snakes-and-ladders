@@ -3,9 +3,15 @@ import Player from "./Player.astro";
 const table = Array.from({ length: 10 }, (_) =>
     Array.from({ length: 10 }, (_) => 0),
 );
+
+interface Props {
+    player1Position: number;
+}
+
+const { player1Position } = Astro.props;
 ---
 
-<table>
+<table id="board">
     <tbody>
         {
             table
@@ -16,12 +22,20 @@ const table = Array.from({ length: 10 }, (_) =>
                                   .map((_, j) => (
                                       <td id={`position-${10 * i + j}`}>
                                           {10 * i + j}
+                                          {10 * i + j === player1Position && (
+                                              <Player
+                                                  position={player1Position}
+                                              />
+                                          )}
                                       </td>
                                   ))
                                   .reverse()
                             : row.map((_, j) => (
                                   <td id={`position-${10 * i + j}`}>
                                       {10 * i + j}
+                                      {10 * i + j === player1Position && (
+                                          <Player position={player1Position} />
+                                      )}
                                   </td>
                               ))}
                     </tr>
@@ -30,7 +44,6 @@ const table = Array.from({ length: 10 }, (_) =>
         }
     </tbody>
 </table>
-<Player />
 
 <style>
     table {

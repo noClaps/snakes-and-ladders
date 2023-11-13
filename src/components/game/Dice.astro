@@ -2,24 +2,18 @@
 import { Dice1 } from "lucide-astro";
 ---
 
-<div
-    class="dice"
-    hx-get="/partials/roll-dice"
-    hx-swap="outerHTML"
-    hx-select=".dice"
->
+<div class="dice">
     <button
-        id="dice"
-        hx-get="/partials/set-player-position"
-        hx-target={`#position-0`}
-        hx-swap="afterbegin"
-        hx-select="#player"
-        hx-trigger="load">Roll Dice</button
+        hx-get="/partials/roll-dice"
+        hx-select="#dice-value"
+        hx-target="#dice-value"
+        hx-swap="outerHTML"
+        hx-select-oob="#board">Roll Dice</button
     >
     <div id="dice-value"><Dice1 /></div>
 </div>
 
-<style is:global>
+<style>
     .dice {
         display: flex;
         flex-direction: column;
@@ -28,7 +22,7 @@ import { Dice1 } from "lucide-astro";
         gap: 1rem;
     }
 
-    #dice {
+    button {
         font-size: 1.125rem;
         padding: 0.5rem;
         cursor: pointer;
