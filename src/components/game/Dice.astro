@@ -1,16 +1,16 @@
 ---
 import { turn } from "../../scripts/position";
 import DiceValue from "./DiceValue.astro";
+import Turn from "./Turn.astro";
 ---
 
 <div class="dice">
-    <p id="turn">Player {turn.get()}'s turn</p>
+    <Turn player={turn.get()} />
     <button
         id="dice"
         hx-get="/partials/roll-dice"
         hx-target="#dice-value"
-        hx-swap="outerHTML"
-        hx-select-oob="#turn">Roll Dice</button
+        hx-swap="outerHTML">Roll Dice</button
     >
     <DiceValue value={3} />
 </div>

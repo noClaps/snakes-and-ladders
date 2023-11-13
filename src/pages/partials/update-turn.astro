@@ -1,0 +1,8 @@
+---
+import Turn from "../../components/game/Turn.astro";
+import { turn } from "../../scripts/position";
+
+export const partial = true;
+---
+
+<Turn player={turn.get()} />

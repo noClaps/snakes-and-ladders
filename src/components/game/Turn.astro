@@ -1,0 +1,28 @@
+---
+import Player from "./Player.astro";
+
+interface Props {
+    player: number;
+}
+
+const { player } = Astro.props;
+---
+
+<div
+    hx-trigger="click from:#dice, click from:#reset"
+    hx-get="/partials/update-turn"
+    hx-swap="outerHTML"
+>
+    <p id="turn">
+        <Player {player} />Player {player}'s turn
+    </p>
+</div>
+
+<style>
+    div {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.5rem;
+    }
+</style>
