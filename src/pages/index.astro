@@ -3,6 +3,10 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import Board from "../components/game/Board.astro";
 import Dice from "../components/game/Dice.astro";
 import Reset from "../components/game/Reset.astro";
+import Ladders from "../components/game/Ladders.astro";
+import { ladders } from "../scripts/stores";
+
+const laddersArray = ladders.get();
 ---
 
 <BaseLayout>
@@ -12,6 +16,7 @@ import Reset from "../components/game/Reset.astro";
         hx-swap="afterend"
     >
         <Board playerPositions={[1, 1, 1, 1]} />
+        <Ladders {laddersArray} />
         <div class="controls">
             <Dice />
             <Reset />

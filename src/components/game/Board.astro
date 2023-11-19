@@ -25,7 +25,7 @@ const { playerPositions } = Astro.props;
                         {i % 2
                             ? row
                                   .map((_, j) => (
-                                      <td>
+                                      <td id={`position-${10 * i + j + 1}`}>
                                           {10 * i + j + 1}
                                           <BoardSquare
                                               {playerPositions}
@@ -35,7 +35,7 @@ const { playerPositions } = Astro.props;
                                   ))
                                   .reverse()
                             : row.map((_, j) => (
-                                  <td>
+                                  <td id={`position-${10 * i + j + 1}`}>
                                       {10 * i + j + 1}
                                       <BoardSquare
                                           {playerPositions}

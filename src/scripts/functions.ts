@@ -20,17 +20,18 @@ export class Ladders {
     #generateLadders() {
         const generateLadder = () => [Math.round(Math.random() * 97) + 2, Math.round(Math.random() * 97) + 2];
         const hasDuplicate = (arr: number[][]) => arr.flatMap(i => i).length !== new Set(arr.flatMap(i => i)).size;
+        const sameRow = (arr: number[][]) => arr.find(ladder => Math.floor(ladder[1] / 10) - Math.floor(ladder[0] / 10) === 0);
 
         const ladders: number[][] = [];
 
-        while (ladders.length < 10) {
+        while (ladders.length < 7) {
             const ladder = generateLadder();
             ladder.sort((a, b) => a - b);
 
             const tempLadder = [...ladders];
             tempLadder.push(ladder);
 
-            if (!hasDuplicate(tempLadder)) {
+            if (!hasDuplicate(tempLadder) && !sameRow(tempLadder)) {
                 ladders.push(ladder);
             }
         }
