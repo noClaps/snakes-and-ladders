@@ -5,6 +5,7 @@ import {
     p2position,
     p3position,
     p4position,
+    snakes,
     turn,
 } from "../../scripts/stores";
 import DiceValue from "../../components/game/DiceValue.astro";
@@ -47,6 +48,21 @@ for (const ladder of ladders.get()) {
     }
     if (p4position.get() == ladder[0]) {
         p4position.set(ladder[1]);
+    }
+}
+
+for (const snake of snakes.get()) {
+    if (p1position.get() == snake[0]) {
+        p1position.set(snake[1]);
+    }
+    if (p2position.get() == snake[0]) {
+        p2position.set(snake[1]);
+    }
+    if (p3position.get() == snake[0]) {
+        p3position.set(snake[1]);
+    }
+    if (p4position.get() == snake[0]) {
+        p4position.set(snake[1]);
     }
 }
 ---

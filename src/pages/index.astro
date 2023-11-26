@@ -4,9 +4,11 @@ import Board from "../components/game/Board.astro";
 import Dice from "../components/game/Dice.astro";
 import Reset from "../components/game/Reset.astro";
 import Ladders from "../components/game/Ladders.astro";
-import { ladders } from "../scripts/stores";
+import Snakes from "../components/game/Snakes.astro";
+import { ladders, snakes } from "../scripts/stores";
 
 const laddersArray = ladders.get();
+const snakesArray = snakes.get();
 ---
 
 <BaseLayout>
@@ -17,6 +19,7 @@ const laddersArray = ladders.get();
     >
         <Board playerPositions={[1, 1, 1, 1]} />
         <Ladders {laddersArray} />
+        <Snakes {snakesArray} />
         <div class="controls">
             <Dice />
             <Reset />

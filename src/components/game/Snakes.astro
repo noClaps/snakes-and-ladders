@@ -1,17 +1,18 @@
 ---
 interface Props {
-    laddersArray: number[][];
+    snakesArray: number[][];
 }
 
-const { laddersArray } = Astro.props;
+const { snakesArray } = Astro.props;
 ---
 
 <canvas
-    hx-get="/partials/update-ladders"
+    hx-get="/partials/update-snakes"
     hx-trigger="click from:#reset"
     hx-swap="outerHTML"
-    id="ladders"
-    data-ladders={JSON.stringify(laddersArray)}></canvas>
+    hx-on::after-swap="console.log('swap complete')"
+    id="snakes"
+    data-snakes={JSON.stringify(snakesArray)}></canvas>
 
 <style>
     canvas {
@@ -23,22 +24,22 @@ const { laddersArray } = Astro.props;
 </style>
 
 <script>
-    document.addEventListener("htmx:load", createLadders);
+    document.addEventListener("htmx:load", createSnakes);
 
-    function createLadders() {
-        const canvas = document.querySelector<HTMLCanvasElement>("#ladders")!;
+    function createSnakes() {
+        const canvas = document.querySelector<HTMLCanvasElement>("#snakes")!;
         const ctx = canvas.getContext("2d")!;
-        const ladders: number[][] = JSON.parse(canvas.dataset.ladders!);
+        const snakes: number[][] = JSON.parse(canvas.dataset.snakes!);
 
         canvas.width = document.documentElement.clientWidth;
         canvas.height = document.documentElement.clientHeight;
 
-        for (const ladder of ladders) {
+        for (const snake of snakes) {
             const square0 = document
-                .querySelector(`#position-${ladder[0]}`)!
+                .querySelector(`#position-${snake[0]}`)!
                 .getBoundingClientRect();
             const square1 = document
-                .querySelector(`#position-${ladder[1]}`)!
+                .querySelector(`#position-${snake[1]}`)!
                 .getBoundingClientRect();
 
             const x0 = square0.x + square0.width / 2;
@@ -48,7 +49,7 @@ const { laddersArray } = Astro.props;
 
             ctx.beginPath();
             ctx.lineWidth = 2;
-            ctx.strokeStyle = "green";
+            ctx.strokeStyle = "red";
             ctx.moveTo(x0, y0);
             ctx.lineTo(x1, y1);
             ctx.stroke();

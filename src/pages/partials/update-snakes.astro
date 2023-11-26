@@ -1,0 +1,11 @@
+---
+import Snakes from "../../components/game/Snakes.astro";
+import { snakes } from "../../scripts/stores";
+
+export const partial = true;
+
+snakes.reset();
+const snakesArray = snakes.get();
+---
+
+<Snakes {snakesArray} />

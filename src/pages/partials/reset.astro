@@ -1,7 +1,6 @@
 ---
 import Board from "../../components/game/Board.astro";
 import {
-    ladders,
     p1position,
     p2position,
     p3position,
@@ -16,8 +15,6 @@ p2position.set(1);
 p3position.set(1);
 p4position.set(1);
 turn.set(1);
-
-ladders.reset();
 ---
 
 <Board playerPositions={[1, 1, 1, 1]} />
