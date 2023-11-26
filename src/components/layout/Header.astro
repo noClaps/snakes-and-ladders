@@ -1,6 +1,4 @@
 ---
-import ThemeToggle from "./ThemeToggle.astro";
-
 interface Props {
     title: string;
 }
@@ -10,14 +8,10 @@ const { title } = Astro.props;
 
 <header>
     <h1>{title}</h1>
-    <ThemeToggle />
 </header>
 
 <style>
     header {
-        display: grid;
-        grid-template-columns: 1fr auto;
-        align-items: center;
         padding: 1.5rem;
     }
 
