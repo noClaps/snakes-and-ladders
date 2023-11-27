@@ -3,12 +3,10 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import Board from "../components/game/Board.astro";
 import Dice from "../components/game/Dice.astro";
 import Reset from "../components/game/Reset.astro";
-import Ladders from "../components/game/Ladders.astro";
-import Snakes from "../components/game/Snakes.astro";
-import { ladders, snakes } from "../scripts/stores";
+import SnakesAndLadders from "../components/game/SnakesAndLadders.astro";
+import { snakesAndLadders } from "../scripts/stores";
 
-const laddersArray = ladders.get();
-const snakesArray = snakes.get();
+const snakesAndLaddersArrays = snakesAndLadders.get();
 ---
 
 <BaseLayout>
@@ -18,8 +16,7 @@ const snakesArray = snakes.get();
         hx-swap="afterend"
     >
         <Board playerPositions={[1, 1, 1, 1]} />
-        <Ladders {laddersArray} />
-        <Snakes {snakesArray} />
+        <SnakesAndLadders {snakesAndLaddersArrays} />
         <div class="controls">
             <Dice />
             <Reset />

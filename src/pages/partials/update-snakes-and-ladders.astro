@@ -1,0 +1,12 @@
+---
+import SnakesAndLadders from "../../components/game/SnakesAndLadders.astro";
+import { snakesAndLadders } from "../../scripts/stores";
+export const partial = true;
+
+snakesAndLadders.reset();
+
+console.log(snakesAndLadders.get());
+const snakesAndLaddersArrays = snakesAndLadders.get();
+---
+
+<SnakesAndLadders {snakesAndLaddersArrays} />

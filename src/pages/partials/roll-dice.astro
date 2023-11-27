@@ -1,11 +1,10 @@
 ---
 import {
-    ladders,
     p1position,
     p2position,
     p3position,
     p4position,
-    snakes,
+    snakesAndLadders,
     turn,
 } from "../../scripts/stores";
 import DiceValue from "../../components/game/DiceValue.astro";
@@ -14,6 +13,7 @@ import { roll } from "../../scripts/functions";
 export const partial = true;
 
 const [newPosition, rollDice] = roll(turn.get());
+const { snakes, ladders } = snakesAndLadders.get();
 
 if (newPosition <= 100) {
     if (turn.get() === 1) {
@@ -36,7 +36,7 @@ if (turn.get() !== 4) {
     turn.set(1);
 }
 
-for (const ladder of ladders.get()) {
+for (const ladder of ladders) {
     if (p1position.get() == ladder[0]) {
         p1position.set(ladder[1]);
     }
@@ -51,7 +51,7 @@ for (const ladder of ladders.get()) {
     }
 }
 
-for (const snake of snakes.get()) {
+for (const snake of snakes) {
     if (p1position.get() == snake[0]) {
         p1position.set(snake[1]);
     }
