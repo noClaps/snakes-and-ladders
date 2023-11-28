@@ -12,7 +12,7 @@
   "dependencies": {
     "@astrojs/check": "^0.3.1",
     "@astrojs/vercel": "^5.2.0",
-    "astro": "^3.6.0",
+    "astro": "^3.6.2",
     "htmx.org": "^1.9.9",
     "lucide-astro": "^0.293.0",
     "nanostores": "^0.9.5",

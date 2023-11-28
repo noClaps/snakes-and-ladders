@@ -8,9 +8,27 @@ interface Props {
 const { player } = Astro.props;
 ---
 
-<div>
+<div class={`player-${player}`}>
     {player === 1 && <Rabbit />}
     {player === 2 && <Rat />}
     {player === 3 && <Cat />}
     {player === 4 && <Dog />}
 </div>
+
+<style>
+    .player-1 {
+        color: red;
+    }
+
+    .player-2 {
+        color: yellow;
+    }
+
+    .player-3 {
+        color: lime;
+    }
+
+    .player-4 {
+        color: cyan;
+    }
+</style>
